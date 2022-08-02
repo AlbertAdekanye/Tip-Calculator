@@ -1,193 +1,209 @@
-*{
- margin: 0;
- padding: 0;
- box-sizing: border-box;
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
- ---border-radius: 10px;
+  --border-radius: 10px;
 }
 
-
-html,body {
- font-family: 'Space Mono', monospace;
- background-color: hsl(185, 41%, 84%);
-height: 100%;
-width: 100%;
-display: flex;
-justify-content: center;
-align-items: center;
+html,
+body {
+  font-family: "Space Mono", monospace;
+  background-color: hsl(185, 41%, 84%);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .wrapper {
-  width: 80%;
-  margin:auto;
+  width: 65%;
+  margin: 0 auto;
 }
 
 .calc {
- width: 100%;
- background-color: hsl(0, 0%, 100%);
- padding:1.5rem;
- border-radius: var(---border-radius);
- box-shadow: hsl(0, 0%, 10px);
- display: flex;
- justify-content: flex-start;
- align-items: center;
+  width: 100%;
+  background-color: hsl(0, 0%, 100%);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-/* @media screen {
-  html,body {
-background-color: red; }
-} */
-
-.calc-left, .calc-right {
- width: 50%;
- align-self: stretch;
- min-height: 100%;
+.calc-left,
+.calc-right {
+  width: 50%;
+  align-self: stretch;
+  min-height: 100%;
 }
 
 .calc-left {
   margin-right: 20px;
 }
 
-
 .cl-input {
- margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 .cl-input label,
 .cl-tips-title {
-
-  color: hsl(186, 14%, 43%);
+  color: hsl(184, 14%, 56%);
   font-size: 0.8rem;
-  margin-bottom: 1px;
+  margin-bottom: 1rem;
 }
-
 
 .form-input {
   width: 100%;
   display: flex;
-  background-color:hsl(189, 41%, 97%);
-  padding: 0.4rem 0 rem;
+  background-color: hsl(189, 41%, 97%);
+  padding: 0.4rem 0;
   border-radius: 5px;
   border: 2px solid transparent;
 }
 
-.form-input:hover
+.form-input:hover,
 .form-input:focus-within {
   border: 2px solid hsl(172, 67%, 45%);
 }
 
 .form-input input {
-  width: 100%; 
+  width: 100%;
   border: none;
   text-align: right;
-  background-color:transparent;
+  background-color: transparent;
   padding-right: 15px;
+  font-size: 1.4rem;
   font-weight: 700;
   color: hsl(183, 100%, 15%);
 }
 
+.form-input input::-webkit-input-placeholder {
+  color: hsl(183, 100%, 15%);
+}
 
-.form-input:input :focus {
+.form-input input[type="number"]::-webkit-inner-spin-button,
+.form-input input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.form-input input:focus {
   outline: none;
 }
 
 .form-input span {
   width: 45px;
   text-align: center;
-color: hsl(185, 41%, 84%);
+  color: hsl(185, 41%, 84%);
 }
 
 .cl-tips {
   display: flex;
-  flex-wrap: wrap ;
+  flex-wrap: wrap;
   gap: 8px;
-  margin-top:2rem;
+  margin-bottom: 2rem;
+  cursor: pointer;
 }
 
 .cl-tip {
-background-color: hsl(183, 100%, 15%);
-color: white;
-font-weight: 700;
-font-size: 1.2rem;
-padding: 0.5rem 0;
-border-radius: 5px;
-width:30% ;
-text-align: center;
-
+  background-color: hsl(183, 100%, 15%);
+  color: hsl(0, 0%, 100%);
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding: 0.5rem 0;
+  border-radius: 5px;
+  width: 30%;
+  text-align: center;
 }
 
-
-.calc-left {
- width: 50%;
- height: 100%;
+.cl-tip.active {
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(0, 0%, 100%);
 }
 
 .calc-right {
- background: hsl(183, 100%, 15%);
- padding: 2rem 1.5rem;
- border-radius: var(---border-radius);
- display: flex;
- flex-direction: column;
- justify-content:space-between;
+  background-color: hsl(183, 100%, 15%);
+  padding: 2rem 1.5rem;
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-/* .cr-wrapper {
-  /* height: 100%; */
- */
+.cr-wrapper {
+}
 
 .tip {
- display: flex;
- width: 100%;
- justify-content: space-between;
- align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .tip-info {
- width:auto;
 }
 
-.tip-info ,tip-title {
- font-size: 0.8rem;
- color:hsl(0, 0%, 100%);
+.tip-info .tip-title {
+  font-size: 0.8rem;
+  color: hsl(0, 0%, 100%);
 }
 
-.tip-info,.tip-subtitle {
- font-size: 0.6rem;
- color: hsl(189, 41%, 97%);
- opacity: 0.5;
+.tip-info .tip-subtitle {
+  font-size: 0.6rem;
+  color: hsl(189, 41%, 97%);
+  opacity: 0.5;
 }
 
 .tip-amount {
- font-size: 2rem;
- color: hsl(172, 67%, 45%);
+  font-size: 2rem;
+  color: hsl(172, 67%, 45%);
 }
 
-
 .tip-action {
-  
 }
 
 .tip-reset-btn {
   width: 100%;
   border: none;
   border-radius: 5px;
-  background-color: hsl(172, 67%, 45%);
+  background-color: hsl(183, 100%, 20%);
   text-transform: uppercase;
   padding: 0.5rem 1rem;
   font-size: 1.1rem;
-
+  font-family: inherit;
+  color: hsl(183, 100%, 15%);
 }
 
-
-
-
-/* frontend mentor */
-.attribution {font-size: 11px; text-align: center;}
-
- .attribution a {
-   color: hsl(228, 45%, 44%);
+@media screen and (max-width: 768px) {
+  .wrapper {
+    width: 90%;
+    margin: 0 auto;
   }
- 
+
+  .calc {
+    flex-direction: column;
+  }
+
+  .calc-left,
+  .calc-right {
+    width: 100%;
+    align-self: stretch;
+    min-height: 100%;
+  }
+}
+
+/* Frontend Mentor */
+.attribution {
+  position: absolute;
+  bottom: 20px;
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
